@@ -154,3 +154,8 @@ export function useLogger() {
   }
   return logger
 }
+
+
+export function useLoggerFromApp(app: App) {
+  return app.config.globalProperties.$log
+}
