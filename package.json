@@ -19,7 +19,7 @@
   },
   "scripts": {
     "buildonly": "tsc",
-    "copyonly": "npx copyfiles src/types ./dist/",
+    "copyonly": "npx copyfiles -u 1 src/types/*.* ./dist/",
     "build": "run-s buildonly copyonly",
     "test": "jest --coverage --config jestconfig.json",
     "lint": "eslint .",
