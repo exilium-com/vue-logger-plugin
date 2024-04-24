@@ -37,40 +37,30 @@ export class VueLogger {
   }
 
   debug(...args: any): void {
-    this.invoke('debug', ...args)
-      .then(() => {/*intentional empty*/})
-      .catch(() => {/*intentional empty*/})
+    this.doLog('debug', ...args)
   }
 
   info(...args: any): void {
-    this.invoke('info', ...args)
-      .then(() => {/*intentional empty*/})
-      .catch(() => {/*intentional empty*/})
+    this.doLog('info', ...args)
   }
 
   warn(...args: any): void {
-    this.invoke('warn', ...args)
-      .then(() => {/*intentional empty*/})
-      .catch(() => {/*intentional empty*/})
+    this.doLog('warn', ...args)
   }
 
   error(...args: any): void {
-    this.invoke('error', ...args)
-      .then(() => {/*intentional empty*/})
-      .catch(() => {/*intentional empty*/})
+    this.doLog('error', ...args)
   }
 
   log(...args: any): void {
-    this.invoke('log', ...args)
-      .then(() => {/*intentional empty*/})
-      .catch(() => {/*intentional empty*/})
+    this.doLog('log', ...args)
   }
 
-  private async invoke(level: LogLevel, ...args: any) {
+  private doLog(level: LogLevel, ...args: any) {
     if (this._options.enabled && levels.indexOf(level) >= levels.indexOf(this._options.level)) {
       const caller: CallerInfo = this._options.callerInfo ? this.getCallerInfo() : undefined
       const event: LogEvent = { level, caller, argumentArray: args }
-      await this.invokeHooks(this._options.beforeHooks, event)
+      //await this.invokeHooks(this._options.beforeHooks, event)
       if (this._options.consoleEnabled) {
         const msgPrefix = this._options.prefixFormat({ level, caller })
         if (this._consoleFunctions.indexOf(level) >= 0) {
@@ -79,7 +69,7 @@ export class VueLogger {
           console.log(msgPrefix, ...args)
         }
       }
-      await this.invokeHooks(this._options.afterHooks, event)
+      //await this.invokeHooks(this._options.afterHooks, event)
     }
   }
 
