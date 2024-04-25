@@ -2,7 +2,6 @@ export {
   VueLogger,
   createLogger,
   useLogger,
-  useLoggerFromApp,
 } from './logger'
 
 export {

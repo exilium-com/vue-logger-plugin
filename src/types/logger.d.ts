@@ -111,11 +111,6 @@ export function createLogger (options: LoggerOptions): VueLogger
 export function useLogger (): VueLogger
 
 /**
- * Get the instance of VueLogger which is provided by the Vue app.
- */
-export function useLoggerFromApp (app: App): VueLogger
-
-/**
  * Options for logging functionality.
  *
  * @interface
